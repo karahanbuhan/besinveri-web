@@ -1,0 +1,2 @@
+# BesinVeri Web
+BesinVeri yazılımının web üzerinde çalışmak üzere geliştirilmiş arayüzü. BesinVeri API ile doğrudan iletişime geçip istenen sorguların sonuçlarını şık bir tasarım ile kullanıcılara sunar. [API kaynak koduna ulaşmak için tıklayın](https://github.com/karahanbuhan/besinveri-api).  
