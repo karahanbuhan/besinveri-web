@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>BesinVeri</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="BesinVeri, Türkiye'deki gıdaların kalori, makro, mineral ve vitamin değerlerini sunan açık ve ücretsiz bir web sayfa">
+    <meta name="keywords", content="BesinVeri, besin, veri, kalori, protein, yağ, kalori">
+    <meta name="author" content="Karahan Buhan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>BesinVeri</h1>
+    <h2>BesinVeri, Türkiye'deki gıdaların kalori, makro, mineral ve vitamin değerlerini sunan açık ve ücretsiz bir web sayfa</h2>
+    Aramak istediğiniz besinin ismini aşağıya girin:
+
+    
+    <form id="search-food" action="javascript:searchFood()">
+        <input type="text" id="fname" name="fname">
+        <input type="submit" value="Ara">
+    </form>
+
+        
+    <!-- TODO: Buraya 5 tane rastgele yemek gelecek -->
+
+    <script>
+        async function searchFood() {
+            fName = document.getElementById("fname").value;
+
+            const url = "https://api.besinveri.com/foods/search?q=" + fName;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error("Response status: ${response.status}");
+                }
+
+                const result = await response.json();
+
+                // TODO: Ekrana direkt yazdırmak yerine drop down bir menü ile daha şık şekilde sunulacak, maksimum 5 olmak üzere seçilebilir şekilde gösterilebilir. Tıklandığında yemek özel sayfaya gitmeli.
+                // TODO: Yemek özel sayfalar dinamik şekilde çalışmalı, bir backend ekosistemi gerekli olabilir.
+                document.writeln("<pre>", JSON.stringify(result), "</pre>");
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+    </script>
+</body>
+
+</html>
