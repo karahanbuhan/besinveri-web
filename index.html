@@ -26,7 +26,7 @@
         async function searchFood() {
             fName = document.getElementById("fname").value;
 
-            const url = "https://api.besinveri.com/foods/search?q=" + fName;
+            const url = "https://api.besinveri.com/food/" + fName;
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -37,7 +37,7 @@
 
                 // TODO: Ekrana direkt yazdırmak yerine drop down bir menü ile daha şık şekilde sunulacak, maksimum 5 olmak üzere seçilebilir şekilde gösterilebilir. Tıklandığında yemek özel sayfaya gitmeli.
                 // TODO: Yemek özel sayfalar dinamik şekilde çalışmalı, bir backend ekosistemi gerekli olabilir.
-                document.writeln("<pre>", JSON.stringify(result), "</pre>");
+                document.writeln(JSON.stringify(result));
             } catch (error) {
                 console.error(error.message);
             }
